@@ -1,0 +1,88 @@
+﻿<Window x:Class="DoAn1_UngDungQuanLySieuThiMini.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAn1_UngDungQuanLySieuThiMini.View"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="1080" Width="1920" Background="WhiteSmoke">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Assets/Styles/BaseStyles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Viewbox Stretch="Fill">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <!-- Define TitleBar -->
+
+
+            <Grid Grid.Row="1" VerticalAlignment="Center"
+          HorizontalAlignment="Center">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"  Margin="50 20 40 0" >
+                    <Image Width="250" Height="auto" Source="../Assets/Image/Logo.png"></Image>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="0 0 50 0 ">
+                    <Label  FontSize="50" FontWeight="Medium">Đăng Nhập</Label>
+                    <Label HorizontalAlignment="Left">Tên đăng nhập:</Label>
+                    <Border Name="UserNameBoxBorder" Width="400" Height="42" CornerRadius="12" BorderThickness="1"
+                    BorderBrush="Black"
+                    GotFocus="BoxBorder_OnGotFocus"
+                    LostFocus="BoxBorder_OnLostFocus">
+                        <TextBox Name="UserNameBox" Background="Transparent" BorderThickness="0" VerticalAlignment="Center"
+                         FontSize="18" Margin="12 0  12 0" ></TextBox>
+                    </Border>
+                    <Label HorizontalAlignment="Left">Mật khẩu:</Label>
+                    <Border Name="PasswordBoxBorder" Width="400" Height="42" CornerRadius="12" BorderThickness="1" 
+                    BorderBrush="Black"
+                    GotFocus="BoxBorder_OnGotFocus"
+                    LostFocus="BoxBorder_OnLostFocus">
+                        <StackPanel Orientation="Horizontal">
+                            <PasswordBox Name="PasswordBox" Margin="12 0 0 0"
+                                 BorderThickness="0" Background="Transparent"
+                                 Width="340" FontSize="18" VerticalAlignment="Center"
+                                 ></PasswordBox>
+                            <TextBox Name="VisiblePasswordBox" Margin="12 0 0 0"
+                                 BorderThickness="0" Background="Transparent"
+                                 Width="340" FontSize="18" VerticalAlignment="Center"
+                                 Visibility="Collapsed" ></TextBox>
+                            <Button Name="ShowPassWordBtn" Width="35" Height="35" Background="Transparent" BorderThickness="1 0 0 0"
+                                  Click="ShowPassWordBtn_OnClick"  Margin="8 0 0 0" 
+                                  >
+                                <Image Name="ShowPassWordIcon" Source="../Assets/Icon/showpwdIcon.png"></Image>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox Name="RememberMeCheckBox" Margin="0 7 0 0" ></CheckBox>
+                        <Label FontSize="13">Ghi nhớ đăng nhập</Label>
+                    </StackPanel>
+                    <Button Name="LoginBtn" Style="{DynamicResource RoundedButtonStyle }" BorderThickness="0"  Width="400" Height="42"
+                        Background="#99FF66" 
+                        FontWeight="Medium" FontSize="15" Click="LoginBtn_OnClick"
+                        Margin="0 15 0 0 "  >Login</Button>
+                    <Button Click="ForgotPassword_OnClick" Margin="10" Style="{DynamicResource TransparentButtonStyle}" Width="auto"
+                    Height="auto">
+                        <Label>Forgot password?</Label>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>
