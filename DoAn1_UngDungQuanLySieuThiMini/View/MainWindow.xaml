@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoAn1_UngDungQuanLySieuThiMini.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="MainWindow" Height="720" Width="1080" Background="#99FF66"
+        WindowStartupLocation="CenterScreen"
+        >
     <!-- Style -->
     <Window.Resources>
         <ResourceDictionary>
@@ -17,55 +19,75 @@
 
     <Viewbox Stretch="Fill">
 
-        <Grid Background="#FFF5F5" x:Name="Container">
+        <Grid x:Name="Container">
             <!-- Define Container Grid Row -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!-- Define TitleBar -->
-            <Border Grid.Row="0" Background="#FFF5F5" x:Name="TitleBar">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent">
-                    <Button x:Name="BtnMinimize" Content="_" Width="40" Height="40"
-                        BorderBrush="Transparent" Background="Transparent" Click="BtnMinimize_OnClick"></Button>
-                    <Button x:Name="BtnMaximize" Content="🗖" Width="40" Height="40"
-                        BorderBrush="Transparent" Background="Transparent" Click="BtnMaximize_OnClick"></Button>
-                    <Button x:Name="BtnClose" Content="X" Width="40" Height="40"
-                        BorderBrush="Transparent" Background="Transparent" Click="BtnClose_OnClick"></Button>
-                </StackPanel>
-            </Border>
 
             <!-- WorkSpace -->
-            <Border Grid.Row="1" Margin="10 0 10 20 " Background="White"  >
+            <Border Grid.Row="0" Margin="10 0 10 20 " Background="White"  >
 
                 <DockPanel x:Name="WorkSpace" LastChildFill="True">
 
                     <!-- Navbar -->
-                    <Grid  DockPanel.Dock="Left" Background="#99FF66">
+                    <Grid  DockPanel.Dock="Left" Background="White">
                         <StackPanel x:Name="NavBar"  Width="156" Margin="12 0 ">
                             <!-- Menu Button -->
+
                             <StackPanel Orientation="Horizontal" Margin="0 23 0 2">
                                 <Button x:Name="MenuButton" DockPanel.Dock="Left" Height="50"  
                                           Background="Transparent" BorderThickness="0"
                                           Click="MenuButton_OnClick" >
                                 </Button>
+                                <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Smart Grocery</Label>
+
                             </StackPanel>
 
                             <Border Style="{DynamicResource Splitter}"
-                                Width="150" BorderBrush="White"
+                                Width="200" BorderBrush="White"
                                 />
 
-                            <Button  Click="NavToHome_OnClick" 
+                            <Button  Click="NavToDashboard_OnClick" 
                                  Style="{DynamicResource NavigateButtonStyle}" >
                                 <StackPanel Orientation="Horizontal" >
 
-                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Home</Label>
+                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Dashboard</Label>
+                                </StackPanel>
+                            </Button>
+                            <Button  Click="NavToNhanVien_OnClick" 
+                                     Style="{DynamicResource NavigateButtonStyle}" >
+                                <StackPanel Orientation="Horizontal" >
+
+                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Nhân viên</Label>
                                 </StackPanel>
                             </Button>
 
+                            <Button  Click="NavToSanPham_OnClick" 
+                                     Style="{DynamicResource NavigateButtonStyle}" >
+                                <StackPanel Orientation="Horizontal" >
 
+                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Sản phẩm</Label>
+                                </StackPanel>
+                            </Button>
 
+                            <Button  Click="NavToNhapHang_OnClick" 
+                                     Style="{DynamicResource NavigateButtonStyle}" >
+                                <StackPanel Orientation="Horizontal" >
 
+                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Nhập hàng</Label>
+                                </StackPanel>
+                            </Button>
+
+                            <Button  Click="NavToBaoCao_OnClick" 
+                                     Style="{DynamicResource NavigateButtonStyle}" >
+                                <StackPanel Orientation="Horizontal" >
+
+                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Báo cáo</Label>
+                                </StackPanel>
+                            </Button>
 
                         </StackPanel>
 
@@ -78,34 +100,6 @@
                         <StackPanel DockPanel.Dock="Right" Margin="0 0 0 0 " Orientation="Horizontal" HorizontalAlignment="Right">
 
 
-                            <Button Click="btnAvatar_Click"
-                                Padding="0"
-                                Style="{DynamicResource RoundedCircleButtonStyle }" 
-                                Margin="0,0,10,0" >
-                                <Button.ContextMenu>
-                                    <ContextMenu x:Name="AvtContextMenu" Placement="Bottom">
-                                        <MenuItem Header="Info" Click="UserInfo_OnClick"/>
-                                        <MenuItem Header="Log out" Click="LogOutMenuItem_OnClick" />
-                                    </ContextMenu>
-                                </Button.ContextMenu>
-                                <Image Width="35" Height="35" Stretch="Fill">
-                                    <Image.Clip>
-                                        <EllipseGeometry Center="17.5,17.5" RadiusX="17.5" RadiusY="17.5"></EllipseGeometry>
-                                    </Image.Clip>
-                                    <Image.Style>
-                                        <Style TargetType="Image">
-                                            <Setter Property="Source" Value="{Binding User.Avatar}" />
-                                            <Style.Triggers>
-                                                <!-- DataTrigger kiểm tra nếu user.Avatar là null -->
-                                                <DataTrigger Binding="{Binding Path=User.Avatar}" Value="{x:Null}">
-                                                    <Setter Property="Source" Value="{Binding DefaultAvatar}" />
-                                                </DataTrigger>
-
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Image.Style>
-                                </Image>
-                            </Button>
                         </StackPanel>
 
 
@@ -128,7 +122,7 @@
                                         <Image Source="../Assets/Icon/SearchIcon.png"  ></Image>
                                     </Button>
                                 </StackPanel>
-                                <TextBlock x:Name="TextBlockPlaceHolder" IsHitTestVisible="False" Text="Search..."
+                                <TextBlock x:Name="TextBlockPlaceHolder" IsHitTestVisible="False" Text="Tìm kiếm..."
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Left" Foreground="DarkGray"
                                         Margin="20 0 0  0"
@@ -138,37 +132,8 @@
                         </Border>
                     </DockPanel>
 
-                    <StatusBar DockPanel.Dock="Bottom" x:Name="SBar" Background="Bisque" >
-
-                        <StatusBarItem Margin="5" BorderThickness="0 0 1 0"
-                                   BorderBrush="Black" >
-                            <TextBlock x:Name="StatusBarCurrentPage">Searching</TextBlock>
-                        </StatusBarItem>
-
-                        <StatusBarItem Name="InternetConnectionStatusBarItem" Visibility="Collapsed" >
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock VerticalAlignment="Center">No internet</TextBlock>
-                            </StackPanel>
-                        </StatusBarItem>
-
-                        <StatusBarItem Name="WordsStatusBarItem" Visibility="Collapsed">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock   x:Name="WordNum"></TextBlock>
-                                <TextBlock xml:space="preserve"> words</TextBlock>
-                            </StackPanel>
-                        </StatusBarItem>
-                    </StatusBar>
 
 
-
-                    <!-- Right NavBar and Show Take Note Button -->
-                    <Grid VerticalAlignment="Bottom" DockPanel.Dock="Right" Width="50" >
-                        <Button Height="50" x:Name="ShowTakeNote" Click="ShowTakeNote_OnClick"
-                            Background="Transparent" BorderThickness="0">
-                            <Button.ToolTip>Take Note</Button.ToolTip>
-
-                        </Button>
-                    </Grid>
 
                     <Grid>
                         <Frame BorderThickness="0 0 0 0" 
@@ -195,7 +160,7 @@
 
 
                         <!-- Content Frame -->
-                        <Frame BorderThickness="0 1 0 0" BorderBrush="Black" Margin="10 0 0 0 " 
+                        <Frame BorderThickness="0 1 0 0" BorderBrush="Black" Margin="5 0 0 0 " 
                        x:Name="Content" 
                        NavigationUIVisibility="Hidden"
                        Panel.ZIndex="0"/>

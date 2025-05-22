@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoAn1_UngDungQuanLySieuThiMini.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="1080" Width="1920" Background="WhiteSmoke">
+        Title="LoginWindow" Height="500" Width="800" Background="WhiteSmoke"
+        WindowStartupLocation="CenterScreen"
+        >
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
