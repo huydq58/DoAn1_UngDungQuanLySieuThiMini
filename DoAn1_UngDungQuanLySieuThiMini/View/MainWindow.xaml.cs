@@ -33,6 +33,11 @@ namespace DoAn1_UngDungQuanLySieuThiMini.View
 
         private void NavToDashboard_OnClick(object sender, RoutedEventArgs e)
         {
+            Content.Navigate(new DashboardPage());
+        }
+
+        private void NavToHoaDon_OnClick(object sender, RoutedEventArgs e)
+        {
 
         }
         private void NavToNhanVien_OnClick(object sender, RoutedEventArgs e)

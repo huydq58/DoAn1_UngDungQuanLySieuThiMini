@@ -49,7 +49,7 @@ namespace DoAn1_UngDungQuanLySieuThiMini.View
 
         private void Login()
         {
-            ResetPasswordWindow window = new ResetPasswordWindow();
+            MainWindow window = new MainWindow();
             window.Show();
             Hide();
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoAn1_UngDungQuanLySieuThiMini.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1080" Background="#99FF66"
+        Title="MainWindow" Height="768" Width="1366 " Background="#99FF66"
         WindowStartupLocation="CenterScreen"
         >
     <!-- Style -->
@@ -51,13 +51,25 @@
                                 />
 
                             <Button  Click="NavToDashboard_OnClick" 
+                                     Background="#99FF66"
                                  Style="{DynamicResource NavigateButtonStyle}" >
                                 <StackPanel Orientation="Horizontal" >
 
                                     <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Dashboard</Label>
                                 </StackPanel>
                             </Button>
+
+                            <Button  Click="NavToHoaDon_OnClick" 
+                                     Background="#99FF66"
+                                 Style="{DynamicResource NavigateButtonStyle}" >
+                                <StackPanel Orientation="Horizontal" >
+
+                                    <Label FontWeight="Medium" Margin="10 0 0 0" FontSize="20"  VerticalAlignment="Center">Hóa đơn</Label>
+                                </StackPanel>
+                            </Button>
+
                             <Button  Click="NavToNhanVien_OnClick" 
+                                     Background="#99FF66"
                                      Style="{DynamicResource NavigateButtonStyle}" >
                                 <StackPanel Orientation="Horizontal" >
 
@@ -66,6 +78,7 @@
                             </Button>
 
                             <Button  Click="NavToSanPham_OnClick" 
+                                     Background="#99FF66"
                                      Style="{DynamicResource NavigateButtonStyle}" >
                                 <StackPanel Orientation="Horizontal" >
 
@@ -74,6 +87,7 @@
                             </Button>
 
                             <Button  Click="NavToNhapHang_OnClick" 
+                                     Background="#99FF66"
                                      Style="{DynamicResource NavigateButtonStyle}" >
                                 <StackPanel Orientation="Horizontal" >
 
@@ -82,6 +96,7 @@
                             </Button>
 
                             <Button  Click="NavToBaoCao_OnClick" 
+                                     Background="#99FF66"
                                      Style="{DynamicResource NavigateButtonStyle}" >
                                 <StackPanel Orientation="Horizontal" >
 
@@ -136,30 +151,8 @@
 
 
                     <Grid>
-                        <Frame BorderThickness="0 0 0 0" 
-                           Margin="0 0 0 0 " 
-                           DockPanel.Dock="Right" 
-                           x:Name="Note" 
-                           VerticalAlignment="Bottom"
-                           HorizontalAlignment="Right"
-                           NavigationUIVisibility="Hidden"
-                           Source="../View/MainWindow/TakeNotePage.xaml"
-                           Height="420"
-                           Width="320"
-                           Panel.ZIndex="2"
-                           Visibility="Hidden"
-                       >
-                            <Frame.Template>
-                                <ControlTemplate TargetType="Frame">
-                                    <Border BorderBrush="Black" BorderThickness="0">
-                                        <ContentPresenter />
-                                    </Border>
-                                </ControlTemplate>
-                            </Frame.Template>
-                        </Frame>
 
-
-                        <!-- Content Frame -->
+                         <!--Content Frame--> 
                         <Frame BorderThickness="0 1 0 0" BorderBrush="Black" Margin="5 0 0 0 " 
                        x:Name="Content" 
                        NavigationUIVisibility="Hidden"

@@ -1,0 +1,83 @@
+﻿<Page x:Class="DoAn1_UngDungQuanLySieuThiMini.View.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DoAn1_UngDungQuanLySieuThiMini.View"
+      mc:Ignorable="d" 
+      Height="300" Width="auto"
+      Title="DashboardPage">
+    <ScrollViewer>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Tổng quan -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top">
+            <TextBlock Text="Tổng quan trong ngày" FontWeight="Bold" FontSize="16" Foreground="Blue" TextDecorations="Underline"/>
+            <StackPanel Margin="0 20 0 0">
+                <TextBlock Text="Doanh thu hôm nay:" FontWeight="SemiBold"/>
+                <TextBlock Text="2,141,000 VND" FontSize="16" Foreground="Blue" Margin="0,2,0,10"/>
+                <TextBlock Text="Số lượng đơn hàng:" FontWeight="SemiBold"/>
+                    <TextBlock Text="22" FontSize="16" Foreground="Blue"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Mặt hàng phổ biến -->
+        <GroupBox Header="Mặt hàng phổ biến" FontWeight="Bold" Grid.Column="1" Margin="20 0">
+            <ListView Height="350" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="LimeGreen" BorderThickness="3" CornerRadius="10" Margin="5" Width="120">
+                            <StackPanel>
+                                <Image Source="{Binding Image}" Height="100" Stretch="UniformToFill"/>
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding SoldText}" FontSize="12" Foreground="Gray" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </GroupBox>
+
+        <!-- Thống kê tình trạng -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="0 200 0 0">
+            <Border BorderBrush="Black" BorderThickness="1" Padding="10">
+                <StackPanel>
+                    <TextBlock>
+                        <Run Text="Số lượng sản phẩm sắp hết hạn: "/>
+                        <Run Text="24" Foreground="Blue" FontWeight="Bold"/>
+                        <Run Text=" sản phẩm"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Số lượng sản phẩm quá hạn: "/>
+                        <Run Text="28" Foreground="Blue" FontWeight="Bold"/>
+                        <Run Text=" sản phẩm"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Số lượng sản phẩm hết hàng: "/>
+                        <Run Text="10" Foreground="Blue" FontWeight="Bold"/>
+                        <Run Text=" sản phẩm"/>
+                    </TextBlock>
+                    <TextBlock Margin="0 10 0 0" FontWeight="Bold" Text="Mặt hàng cần nhập thêm"/>
+                    <WrapPanel>
+                        <Image Source="../Assets/Image/Logo.png" Width="100" Margin="5" Stretch="Uniform"/>
+                        <Image Source="../Assets/Image/Logo.png" Width="100" Margin="5" Stretch="Uniform"/>
+
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+
+    </Grid>
+    </ScrollViewer>
+</Page>
